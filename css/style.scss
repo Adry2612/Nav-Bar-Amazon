@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+html {
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body{
+    background-color: #abc2b1;
+}
+.contenedor{
+    margin: auto;
+    width: 90%;
+}
+
+main article{
+    height: 100vh;
+    padding: 2rem 0;
+    margin: 2rem;
+    background-color: white;
+}
+
+nav{
+    height: 5vw;
+    background-color: black;
+}
