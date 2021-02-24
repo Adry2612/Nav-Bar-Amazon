@@ -20,7 +20,8 @@ body {
 
 .contenedor {
   margin: auto;
-  width: 90%;
+  width: 85%;
+  height: 100%;
 }
 
 main article {
@@ -31,8 +32,10 @@ main article {
 }
 
 nav {
-  height: 5vw;
+  height: 15vh;
+  width: 100vw;
   background-color: #232f3e;
+  font-size: 1rem;
 }
 
 nav .responsive {
@@ -80,7 +83,7 @@ nav .contenedor-enlaces {
 
 nav .contenedor-enlaces .departamentos {
   font-size: 0.8rem;
-  color: white;
+  color: #ccc;
   border: 1px solid transparent;
   border-radius: 7px;
   padding: 4px;
@@ -96,7 +99,11 @@ nav .contenedor-enlaces .departamentos {
 }
 
 nav .contenedor-enlaces .departamentos:hover {
-  border: 1px solid white;
+  border: 1px solid #ccc;
+}
+
+nav .contenedor-enlaces .departamentos:hover span {
+  color: #e68b02;
 }
 
 nav .contenedor-enlaces .departamentos span {
@@ -123,7 +130,7 @@ nav .contenedor-enlaces .enlaces {
 }
 
 nav .contenedor-enlaces .enlaces a {
-  color: white;
+  color: #ccc;
   text-decoration: none;
   margin-right: 1rem;
   border: 1px solid transparent;
@@ -132,6 +139,24 @@ nav .contenedor-enlaces .enlaces a {
 }
 
 nav .contenedor-enlaces .enlaces a:hover {
-  border: 1px solid white;
+  border: 1px solid #ccc;
+}
+
+nav .contenedor-grid {
+  position: relative;
+  background-color: #ccc;
+}
+
+nav .contenedor-grid .grid {
+  top: 5px;
+  position: absolute;
+  z-index: 1000;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "categorias subcategorias imagenes imagenes";
 }
 /*# sourceMappingURL=style.css.map */

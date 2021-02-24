@@ -17,7 +17,8 @@ body {
 }
 .contenedor {
   margin: auto;
-  width: 90%;
+  width: 85%;
+  height: 100%;
 }
 
 main article {
@@ -28,8 +29,10 @@ main article {
 }
 
 nav {
-  height: 5vw;
+  height: 15vh;
+  width: 100vw;
   background-color: #232f3e;
+  font-size: 1rem;
 
   .responsive {
     display: flex;
@@ -66,7 +69,7 @@ nav {
 
     .departamentos {
       font-size: 0.8rem;
-      color: white;
+      color: #ccc;
       border: 1px solid transparent;
       border-radius: 7px;
       padding: 4px;
@@ -75,7 +78,10 @@ nav {
       align-items: flex-end;
 
       &:hover {
-        border: 1px solid white;
+        border: 1px solid #ccc;
+        span {
+          color: rgb(230, 139, 2);
+        }
       }
 
       span {
@@ -98,7 +104,7 @@ nav {
       align-items: center;
 
       a {
-        color: white;
+        color: #ccc;
         text-decoration: none;
         margin-right: 1rem;
         border: 1px solid transparent;
@@ -106,9 +112,25 @@ nav {
         padding: 0.5rem;
 
         &:hover {
-          border: 1px solid white;
+          border: 1px solid #ccc;
         }
       }
+    }
+  }
+
+  .contenedor-grid{
+    position: relative;
+    background-color: #ccc;
+
+    .grid{
+      top: 5px;
+      position: absolute;
+      z-index: 1000;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+      grid-template-areas:
+        "categorias subcategorias imagenes imagenes";
     }
   }
 }
