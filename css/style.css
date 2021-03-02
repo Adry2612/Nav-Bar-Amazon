@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+/* Minuto 1:20 */
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -144,11 +145,15 @@ nav .contenedor-enlaces .enlaces a:hover {
 
 nav .contenedor-grid {
   position: relative;
-  background-color: #ccc;
+  /* background-color: #ccc; */
+}
+
+nav .contenedor-grid .subtitulo {
+  display: none;
 }
 
 nav .contenedor-grid .grid {
-  top: 5px;
+  width: 100%;
   position: absolute;
   z-index: 1000;
   display: -ms-grid;
@@ -157,6 +162,166 @@ nav .contenedor-grid .grid {
       grid-template-columns: repeat(4, 1fr);
   -ms-grid-rows: 1fr;
       grid-template-rows: 1fr;
-      grid-template-areas: "categorias subcategorias imagenes imagenes";
+      grid-template-areas: "categorias subcategorias subcategorias subcategorias";
+  /* SUBCATEGORIAS */
+}
+
+nav .contenedor-grid .grid::before {
+  content: "";
+  display: block;
+  background: transparent;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid white;
+  /* Posicionamieto del triangulo */
+  position: absolute;
+  top: -5px;
+  left: 12rem;
+}
+
+nav .contenedor-grid .grid > div {
+  background: white;
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+nav .contenedor-grid .grid .boton-volver {
+  background: #232f3e;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 1rem;
+  display: none;
+}
+
+nav .contenedor-grid .grid .categorias {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: categorias;
+  padding-top: 1rem;
+  min-height: 30rem;
+}
+
+nav .contenedor-grid .grid .categorias a {
+  color: black;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 3rem;
+}
+
+nav .contenedor-grid .grid .categorias a i {
+  display: none;
+}
+
+nav .contenedor-grid .grid .categorias a:hover {
+  color: #e68b02;
+  font-weight: bold;
+}
+
+nav .contenedor-grid .grid .categorias a:hover i {
+  display: inline-block;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-area: subcategorias;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  height: 100%;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias img {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias .enlacesSubcategoria {
+  padding-top: 1rem;
+  height: 100%;
+  width: 20rem;
+  max-height: 30rem;
+  overflow: auto;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias .enlacesSubcategoria a {
+  color: black;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 3rem;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias .enlacesSubcategoria a i {
+  display: none;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias .enlacesSubcategoria a:hover {
+  color: #e68b02;
+  font-weight: bold;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias .enlacesSubcategoria a:hover i {
+  display: inline-block;
+  color: #e68b02;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias .enlacesSubcategoria .subtitulo {
+  color: #e68b02;
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 1.5rem;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias .bannerSubcategoria a {
+  display: block;
+  height: 100%;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias .imagenesSubcategoria {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: start;
+      align-content: start;
+}
+
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias .imagenesSubcategoria a {
+  height: 50%;
+  width: 50%;
 }
 /*# sourceMappingURL=style.css.map */
