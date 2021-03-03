@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
-/* Minuto 1:20 */
+/* Minuto 1:24 */
 
 html {
   box-sizing: border-box;
@@ -20,6 +20,7 @@ body {
   margin: auto;
   width: 85%;
   height: 100%;
+  max-width: 1200px;
 }
 
 main article {
@@ -73,10 +74,11 @@ nav {
       color: #ccc;
       border: 1px solid transparent;
       border-radius: 7px;
-      padding: 4px;
+      padding: 7px;
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: center;
+      cursor: default;
 
       &:hover {
         border: 1px solid #ccc;
@@ -96,6 +98,7 @@ nav {
         font-size: 10px;
         margin-bottom: 0.8rem;
         margin-left: 0.5rem;
+        top: 1.5rem;
       }
     }
 
@@ -119,25 +122,27 @@ nav {
     }
   }
 
-  .contenedor-grid{
+  .contenedor-grid {
     position: relative;
-    /* background-color: #ccc; */
 
-    .subtitulo{
+    .subtitulo {
       display: none;
     }
 
-    .grid{
+    .grid {
       width: 100%;
       position: absolute;
       z-index: 1000;
-      display: grid;
+      display: none;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: 1fr;
-      grid-template-areas:
-        "categorias subcategorias subcategorias subcategorias";
+      grid-template-areas: "categorias subcategorias subcategorias subcategorias";
 
-      &::before{
+      &.activo{
+        display: grid;
+      }
+
+      &::before {
         content: "";
         display: block;
         background: transparent;
@@ -147,15 +152,15 @@ nav {
         /* Posicionamieto del triangulo */
         position: absolute;
         top: -5px;
-        left: 12rem;
+        left: 14.2rem;
       }
-  
-      > div{
+
+      > div {
         background: white;
-        box-shadow: 0px 3px 6px rgba(0,0,0,.5);
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
       }
-  
-      .boton-volver{
+
+      .boton-volver {
         background: #232f3e;
         color: white;
         border: none;
@@ -165,60 +170,63 @@ nav {
         font-size: 1rem;
         display: none;
       }
-  
-      .categorias{
+
+      .categorias {
         grid-area: categorias;
         padding-top: 1rem;
         min-height: 30rem;
-  
-        a{
+
+        a {
           color: black;
           text-decoration: none;
           display: flex;
           justify-content: space-between;
           align-items: center;
           padding: 1rem 3rem;
-  
-          i{
+
+          i {
             display: none;
-  
           }
-  
-          &:hover{
+
+          &:hover {
             color: rgb(230, 139, 2);
             font-weight: bold;
-  
-            i{
+
+            i {
               display: inline-block;
             }
           }
         }
       }
       /* SUBCATEGORIAS */
-      .contenedor-subcategorias{
+      .contenedor-subcategorias {
         grid-area: subcategorias;
-  
-        .subcategorias{
-          display: grid;
+
+        .subcategorias {
+          display: none;
           grid-template-columns: 1fr 1fr 1fr;
           grid-template-rows: 1fr;
           height: 100%;
-            
-          img{
+
+          &.activo {
+            display: grid;
+          }
+          img {
             width: 100%;
             height: 100%;
             vertical-align: top;
+            align-self: center;
             object-fit: cover;
           }
-  
-          .enlacesSubcategoria{
+
+          .enlacesSubcategoria {
             padding-top: 1rem;
             height: 100%;
             width: 20rem;
             max-height: 30rem;
             overflow: auto;
-  
-            a{
+
+            a {
               color: black;
               text-decoration: none;
               display: flex;
@@ -226,43 +234,43 @@ nav {
               align-items: center;
               padding: 1rem 3rem;
 
-              i{
+              i {
                 display: none;
               }
-      
-              &:hover{
+
+              &:hover {
                 color: rgb(230, 139, 2);
                 font-weight: bold;
-      
-                i{
+
+                i {
                   display: inline-block;
-                  color:rgb(230, 139, 2);
+                  color: rgb(230, 139, 2);
                 }
               }
             }
-            
-            .subtitulo{
-              color:rgb(230, 139, 2);
+
+            .subtitulo {
+              color: rgb(230, 139, 2);
               display: inline-block;
               padding: 0 2rem;
               font-size: 1.5rem;
             }
           }
 
-          .bannerSubcategoria{
-            a{
+          .bannerSubcategoria {
+            a {
               display: block;
               height: 100%;
             }
           }
 
-          .imagenesSubcategoria{
+          .imagenesSubcategoria {
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
             align-content: start;
-            
-            a{
+
+            a {
               height: 50%;
               width: 50%;
             }

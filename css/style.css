@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
-/* Minuto 1:20 */
+/* Minuto 1:24 */
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -23,6 +23,7 @@ body {
   margin: auto;
   width: 85%;
   height: 100%;
+  max-width: 1200px;
 }
 
 main article {
@@ -87,16 +88,17 @@ nav .contenedor-enlaces .departamentos {
   color: #ccc;
   border: 1px solid transparent;
   border-radius: 7px;
-  padding: 4px;
+  padding: 7px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: default;
 }
 
 nav .contenedor-enlaces .departamentos:hover {
@@ -118,6 +120,7 @@ nav .contenedor-enlaces .departamentos i {
   font-size: 10px;
   margin-bottom: 0.8rem;
   margin-left: 0.5rem;
+  top: 1.5rem;
 }
 
 nav .contenedor-enlaces .enlaces {
@@ -145,7 +148,6 @@ nav .contenedor-enlaces .enlaces a:hover {
 
 nav .contenedor-grid {
   position: relative;
-  /* background-color: #ccc; */
 }
 
 nav .contenedor-grid .subtitulo {
@@ -156,14 +158,18 @@ nav .contenedor-grid .grid {
   width: 100%;
   position: absolute;
   z-index: 1000;
-  display: -ms-grid;
-  display: grid;
+  display: none;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   -ms-grid-rows: 1fr;
       grid-template-rows: 1fr;
       grid-template-areas: "categorias subcategorias subcategorias subcategorias";
   /* SUBCATEGORIAS */
+}
+
+nav .contenedor-grid .grid.activo {
+  display: -ms-grid;
+  display: grid;
 }
 
 nav .contenedor-grid .grid::before {
@@ -176,7 +182,7 @@ nav .contenedor-grid .grid::before {
   /* Posicionamieto del triangulo */
   position: absolute;
   top: -5px;
-  left: 12rem;
+  left: 14.2rem;
 }
 
 nav .contenedor-grid .grid > div {
@@ -240,8 +246,7 @@ nav .contenedor-grid .grid .contenedor-subcategorias {
 }
 
 nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias {
-  display: -ms-grid;
-  display: grid;
+  display: none;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: 1fr;
@@ -249,10 +254,18 @@ nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias {
   height: 100%;
 }
 
+nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias.activo {
+  display: -ms-grid;
+  display: grid;
+}
+
 nav .contenedor-grid .grid .contenedor-subcategorias .subcategorias img {
   width: 100%;
   height: 100%;
   vertical-align: top;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   -o-object-fit: cover;
      object-fit: cover;
 }

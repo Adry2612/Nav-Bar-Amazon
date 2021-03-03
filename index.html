@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/9f6a9cf83f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <script src="js/app.js"></script>
     <title> Barra de navegación estilo Amazon</title>
 </head>
 <body>
@@ -16,8 +17,9 @@
             <button id="boton-cerrar"><i class="fas fa-times"></i></button>
         </div>
         
+        <!-- Menú de navegación -->
         <div class="contenedor contenedor-enlaces">
-            <div class="departamentos">
+            <div id="departamentos" class="departamentos">
                 <p> Todos los <span> Departamentos </span> </p>
                 <i class="fas fa-sort-down"></i>
             </div>
@@ -29,17 +31,20 @@
             </div>
         </div>
 
+        <!-- Menu de categorias -->
         <div class="contenedor contenedor-grid">
-            <div class="grid">
+            <div id="grid" class="grid">
                 <div class="categorias">
                     <button class="boton-volver"> <i class="fas fa-arrow-left"></i></button>
                     <h3 class="subtitulo">Categorias</h3>
 
                     <a href="#" data-categoria="Tecnologias-y-ordenadores"> Tecnologias y ordenadores <i class="fas fa-chevron-right"></i></a>
-                    <a href="#" data-categoria="Ropa-y-calzado"> Ropa y calzado <i class="fas fa-chevron-right"></i></a>
-                    <a href="#" data-categoria="Juegos"> Juegos <i class="fas fa-chevron-right"></i></a>
+                    <a href="#" data-categoria="Gatitos"> Gatitos <i class="fas fa-chevron-right"></i></a>
+                    <a href="#" data-categoria="Perritos"> Perritos <i class="fas fa-chevron-right"></i></a>
                     <a href="#" data-categoria="Hogar"> Hogar <i class="fas fa-chevron-right"></i></a>
                 </div>
+                
+                <!-- Menú de subcategorias y imágenes -->
                 <div class="contenedor-subcategorias">
                     <div class="subcategorias" data-categoria="Tecnologias-y-ordenadores">
                         <div class="enlacesSubcategoria">
@@ -70,6 +75,67 @@
                             </a>
                         </div>
                     </div>
+
+                    <div class="subcategorias activo" data-categoria="Gatitos">
+                        <div class="enlacesSubcategoria">
+                            <button class="boton-volver"><i class="fas fa-arrow-left"></i></button>
+                            <h3 class="subtitulo"> Gatitos </h3>
+                            <a href="#"> Pardos <i class="fas fa-chevron-right"></i></a>
+                            <a href="#"> Monisimos <i class="fas fa-chevron-right"></i></a>
+                            <a href="#"> Aaaatete <i class="fas fa-chevron-right"></i></a>
+                            <a href="#"> Juguetes <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                         <div class="bannerSubcategoria">
+                             <a href="#">
+                                 <img src="img/gatitos4.jpg" alt="4">
+                            </a>
+                        </div>
+                        <div class="imagenesSubcategoria">
+                            <a href="#">
+                                <img src="img/gatitos2.jpg" alt="1">
+                            </a>
+                            <a href="#">
+                                <img src="img/gatitos3.jpg" alt="2">
+                            </a>
+                            <a href="#">
+                                <img src="img/gatitos1.jpg" alt="3">
+                            </a>
+                            <a href="#">
+                                <img src="img/gatitos5.jpg" alt="5">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="subcategorias" data-categoria="Perritos">
+                        <div class="enlacesSubcategoria">
+                            <button class="boton-volver"><i class="fas fa-arrow-left"></i></button>
+                            <h3 class="subtitulo"> Perritos </h3>
+                            <a href="#"> Labrador <i class="fas fa-chevron-right"></i></a>
+                            <a href="#"> Pitbull <i class="fas fa-chevron-right"></i></a>
+                            <a href="#"> Akita <i class="fas fa-chevron-right"></i></a>
+                            <a href="#"> Doberman <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                         <div class="bannerSubcategoria">
+                             <a href="#">
+                                 <img src="img/perritos1.jpg" alt="4">
+                            </a>
+                        </div>
+                        <div class="imagenesSubcategoria">
+                            <a href="#">
+                                <img src="img/perritos2.jpg" alt="1">
+                            </a>
+                            <a href="#">
+                                <img src="img/perritos3.jpg" alt="2">
+                            </a>
+                            <a href="#">
+                                <img src="img/perritos4.jpg" alt="3">
+                            </a>
+                            <a href="#">
+                                <img src="img/perritos5.jpg" alt="5">
+                            </a>
+                        </div>
+                    </div>
+                </div>                  
                 </div>
             </div>
         </div>
