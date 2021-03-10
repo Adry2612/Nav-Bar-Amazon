@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
-/* Minuto 1:50 */
+/* Minuto 2:33*/
 
 html {
   box-sizing: border-box;
@@ -51,24 +51,27 @@ nav {
       background: none;
       padding: 0rem 2rem;
       border-radius: 5px;
+      margin: 1rem;
+      padding: 1rem 1.5rem;
+      transition: 0.3s ease all;
 
-      &#boton-abrir{
-        display: none;
-        margin: 1rem;
-        padding: 1rem 1.5rem;
-
-        &.activo{
-          display: inline-block;
-        }
-      } 
-
-      &#boton-cerrar{
+      &#boton-abrir {
         display: none;
 
-        &.activo{
+        &.activo {
           display: inline-block;
         }
-      } 
+      }
+
+      &#boton-cerrar {
+        display: none;
+        position: relative;
+        float: right;
+        margin: 1.3rem 2rem;
+        &.activo {
+          display: inline-block;
+        }
+      }
 
       &:hover {
         border: 1px solid #c7c7c7;
@@ -301,21 +304,20 @@ $tablet: 1000px;
   .contenedor {
     width: 100%;
   }
-
 }
 
 $tabletPeque: 800px;
-@media screen and (max-width: $tabletPeque){
+@media screen and (max-width: $tabletPeque) {
   .navegacion {
     width: 100%;
     display: flex;
     flex-direction: column;
 
-    .responsive{
+    .responsive {
       display: inline-block;
     }
 
-    .contenedor-enlaces{
+    .contenedor-enlaces {
       padding: 2rem;
       flex-direction: column;
       align-items: flex-start;
@@ -323,36 +325,36 @@ $tabletPeque: 800px;
       position: fixed;
       left: 0;
       height: 100vh;
-      background:#232f3e;
+      background: #232f3e;
       width: 80%;
       z-index: 2;
-      transition: .3s ease all;
+      transition: 0.3s ease all;
       transform: translate(-100%);
-  
-      &.activo{
+
+      &.activo {
         transform: translate(0%);
       }
 
-      .departamentos{
+      .departamentos {
         width: 100%;
         align-items: center;
         justify-content: space-between;
 
-        i{
+        i {
           position: relative;
-          top:0.5rem;
+          top: 0.5rem;
           transform: rotate(-90deg);
           margin-left: 2rem;
         }
       }
 
-      .enlaces{
+      .enlaces {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        
-        a{
+
+        a {
           width: 100%;
           display: block;
           margin: 1rem 0;
@@ -361,10 +363,10 @@ $tabletPeque: 800px;
       }
     }
 
-    .contenedor-grid .grid{
+    .contenedor-grid .grid {
       display: flex;
       position: fixed;
-      transition: .3s ease all;
+      transition: 0.3s ease all;
       transform: translateX(-100%);
       z-index: 3;
       width: 80%;
@@ -372,27 +374,73 @@ $tabletPeque: 800px;
       top: 0;
       left: 0;
       grid-template-areas: "categorias categorias categorias categorias";
-      
-      &.activo{
-        transform: translateX(0%);
+
+      &::before {
+        display: none;
       }
 
-      &::before{
-        display: none;
+      &.activo {
+        transform: translateX(0);
       }
-      
-      .categorias{
-        grid-area: categorias;
-      }
-      
-      .subcategorias{
-        display: none;
-        
-        img{
-          display: none;
+
+
+      .boton-volver {
+        display: inline-block;
+
+        i {
+          margin-right: 1rem;
         }
       }
-  
+
+      .subtitulo {
+        display: block;
+        padding: 0 3rem;
+        color: rgb(230, 139, 2);
+        font-size: 1.5rem;
+      }
+
+      .categorias {
+        grid-area: categorias;
+      }
+
+      .contenedor-subcategorias {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateX(100%);
+        
+        &.activo{
+          display: inline-block;
+          transform: translateX(0%);
+
+        }
+
+        .subcategorias{
+          grid-template-columns: 1fr;
+          //grid-template-rows: 1fr 1fr;
+        }
+
+        .bannerSubcategoria{
+          width: 100%;
+          min-height: 200px;
+          max-height: 350px ;
+        }
+
+        .enlacesSubcategoria{
+          min-height: 50vh;
+        }
+        
+        .imagenesSubcategoria{
+          min-height: 50vh;
+          overflow: auto;
+
+          a{
+            width: 50%;
+            height: 80%;
+          }
+        }
+      }
     }
   }
 }
