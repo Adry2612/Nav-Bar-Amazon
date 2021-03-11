@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Obtenemos todas las categorias.
   var categorias = document.querySelectorAll(".categorias a");
-
+  ;
   // Obtenemos el atributo personalizado de cada enlace.
   categorias.forEach((enlace) => {
     enlace.addEventListener("mouseenter", (evento) => {
-      if (!esMovil()){
+      if (!esMovil()) {
         var atributoCategoria = evento.target.dataset.categoria;
 
         var subcategorias = document.querySelectorAll(".subcategorias");
@@ -29,13 +29,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }
         });
-      } 
+      }
     });
   });
 
   //RESPONSIVE DESIGN
   // Saber si el dispositivo es móvil.
   var menu = document.getElementById("boton-abrir");
+  var departamentos = document.querySelectorAll(".subcategorias");
 
   if (!esMovil()) {
     if (menu.classList.contains("activo")) {
@@ -44,6 +45,12 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     if (!menu.classList.contains("activo")) {
       menu.classList.add("activo");
+
+      departamentos.forEach((elemento) => {
+        if (elemento.classList.contains("activo")) {
+          elemento.classList.remove("activo");
+        }
+      });
     }
   }
 
@@ -60,11 +67,15 @@ function abrirDepartamentos() {
   if (!esMovil()) {
     var grid = document.getElementById("grid");
     grid.classList.add("activo");
+
+    // Se abre la primera categorias al abrir el menu.
+    var categoria = document.querySelector('.subcategorias');
+    categoria.classList.add('activo')
     // Al salir del menú se cierra automáticamente.
     grid.addEventListener("mouseleave", () => {
       grid.classList.remove("activo");
     });
-  } 
+  }
 }
 
 function esMovil() {
@@ -91,7 +102,7 @@ function activarMenu() {
       menu.classList.remove("activo");
     });
 
-    // Funcionalidad botón departamentos.ç
+    // Funcionalidad botón departamentos.
     var departamentos = document.getElementById("departamentos");
     departamentos.addEventListener("click", activarCategorias);
   }
@@ -115,34 +126,44 @@ function activarCategorias() {
     cerrar.classList.add("activo");
   });
 
-  /* Enlaces */
-  var enlaces = document.querySelectorAll('.categorias a');
+  /* Subcategorias */
+  var enlaces = document.querySelectorAll(".categorias a");
 
-  enlaces.forEach(elemento => {
-    elemento.addEventListener('click', function(evento){
+  enlaces.forEach((elemento) => {
+    elemento.addEventListener("click", function (evento) {
       evento.preventDefault();
       var atributoCategoria = elemento.dataset.categoria;
 
-      var subcategorias = document.querySelectorAll('.subcategorias');
-      subcategorias.forEach(enlace => {
+      var subcategorias = document.querySelectorAll(".subcategorias");
+      subcategorias.forEach((enlace) => {
         var atributoSubcategoria = enlace.dataset.categoria;
-        console.log(enlace);
-  
-        if (atributoCategoria == atributoSubcategoria){
-          enlace.classList.add('activo');
-          var botonAtras = document.getElementsByClassName('boton-volver');
-          console.log(botonAtras);
-          for (var i in botonAtras){
-            botonAtras[i].addEventListener('click', function(evento){
-              evento.preventDefault();
-              if (enlace.classList.contains('activo')){
-                enlace.classList.remove('activo')
+
+        // Mostramos solamente la categoria seleccionada.
+        if (atributoCategoria == atributoSubcategoria) {
+          const contenedorSubcategorias = document.querySelector(
+            ".contenedor-subcategorias"
+          );
+          contenedorSubcategorias.classList.add("activo");
+          enlace.classList.add("activo");
+
+          // Añadir funcionalidad a botón volver de cada subcategoria.
+          var botonAtras = document.querySelector(
+            ".subcategorias.activo .boton-volver"
+          );
+          botonAtras.addEventListener("click", function (evento) {
+            evento.preventDefault();
+            if (contenedorSubcategorias.classList.contains("activo")) {
+              enlace.classList.remove("activo");
+              contenedorSubcategorias.classList.remove("activo");
+
+              if (botonAtras.classList.contains("activo")) {
+                botonAtras.classList.remove("activo");
               }
-            });
-          }
-        } else{
-          if (enlace.classList.contains('activo')){
-            enlace.classList.remove('activo');
+            }
+          });
+        } else {
+          if (enlace.classList.contains("activo")) {
+            enlace.classList.remove("activo");
           }
         }
       });
